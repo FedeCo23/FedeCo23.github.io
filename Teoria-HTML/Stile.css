@@ -1,0 +1,392 @@
+/*VARIABILI COLORE*/
+:root {
+    /* Colori principali */
+    --colore-sfondo-pagina: rgb(238, 192, 207);
+    --colore-principale: mediumvioletred;
+    --colore-principale-dettagli-scuri: rgba(199, 21, 133, 0.3);
+    --colore-nav: mediumvioletred;
+    --colore-background-card: white;
+    --colore-testo: rgb(40, 35, 25);
+    --colore-testo-chiaro: rgb(255, 255, 255);
+}
+
+
+/*DARK MODE*/
+.dark-mode-bar {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: var(--colore-testo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-radius: 5px;
+}
+
+.dark-mode-bar label {
+    writing-mode: vertical-rl;
+    color: var(--colore-testo-chiaro);
+}
+
+#dark-mode-switch {
+   opacity: 0;
+}
+
+#dark-mode-switch:checked~.div_contenitore {
+    background: #222;
+     --colore-sfondo-pagina: rgb(152, 17, 103);
+    --colore-principale: rgb(98, 12, 66);
+    --colore-background-card: rgb(226, 104, 181);
+    --colore-nav: rgb(98, 12, 66);
+    --colore-testo: rgb(255, 255, 255);
+}
+
+/*sistemare colore testo chiaro/colore sfondo chiaro*/
+
+/* ==========================================================================
+   Layout generale
+   ========================================================================== */
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--colore-sfondo-pagina)
+}
+
+main {
+    border: solid 3px;
+    border-color: var(--colore-principale);
+    border-radius: 5px;
+    margin: 20px;
+    padding: 30px;
+}
+
+
+/* ==========================================================================
+   Navigazione e intestazione
+   ========================================================================== */
+
+nav {
+    background-color: var(--colore-nav);
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: var(--colore-testo-chiaro);
+    margin: 10px;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: var(--colore-sfondo-pagina)
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--colore-principale);
+    box-shadow: 0 2px 4px var(--colore-principale-dettagli-scuri);
+}
+
+
+header {
+    text-align: center;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   Titoli e testo
+   ========================================================================== */
+
+h1,
+h2 {
+    color: var(--colore-testo-chiaro);
+    text-align: center;
+    font-size: 2em;
+}
+
+.esempio .reset {
+    all: revert;
+}
+
+.square {
+    background-color: var(--colore-principale);
+    color: var(--colore-testo-chiaro);
+    margin: 20px;
+    padding: 15px;
+}
+
+#elementi {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+}
+
+#elementi>p {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.esempio {
+    margin-top: 20px;
+    padding: 15px;
+    border-left: 4px solid var(--colore-principale-dettagli-scuri);
+    background: var(--colore-background-card);
+    border-radius: 5px;
+}
+
+.esempio p {
+    color: var(--colore-testo);
+}
+
+
+pre {
+    background: var(--colore-background-card);
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+
+.card {
+    margin-bottom: 40px;
+    padding: 25px;
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+    background: var(--colore-principale);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--colore-testo-chiaro);
+}
+
+.card p {
+    color: var(--colore-testo-chiaro);
+    margin-bottom: 15px;
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto 10px;
+    border-radius: 8px;
+}
+
+.card figcaption {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.card strong {
+    color: var(--colore-testo);
+}
+
+.card .strong_chiaro {
+    color: var(--colore-testo-chiaro);
+}
+
+.card code {
+    background: var(--colore-background-card);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+/* ==========================================================================
+   Liste
+   ========================================================================== */
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+/* ==========================================================================
+   Immagini e video
+   ========================================================================== */
+
+#immagini {
+    margin: 50px auto;
+    padding: 30px;
+}
+
+#immagini h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.input-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.input-card {
+    flex: 1 1 calc(25% - 20px);
+    min-width: 180px;
+    box-sizing: border-box;
+    color: white;
+    background-color: mediumvioletred;
+    border: 3px solid rgb(197, 67, 175);
+    border-radius: 8px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    margin: 5px;
+}
+
+.input-card-wide {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 700px;
+    max-width: 100%;
+    flex: none;
+    margin-right: auto;
+}
+
+/* ==========================================================================
+   Tabelle
+   ========================================================================== */
+
+.esempio table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.esempio th,
+.esempio td {
+    border: 1px solid var(--colore-principale);
+    padding: 10px;
+    text-align: center;
+}
+
+.esempio caption {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.esempio th {
+    background: var(--colore-principale);
+    color: white;
+}
+
+/* ==========================================================================
+   Form
+   ========================================================================== */
+
+form {
+    margin: 20px 0;
+}
+
+fieldset {
+    border: 2px solid var(--colore-principale);
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    color: var(--colore-principale);
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+label {
+    display: inline-block;
+    margin: 10px;
+}
+
+input,
+select,
+textarea {
+    padding: 6px 10px;
+    border: 1px solid var(--colore-principale);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    padding: 0;
+    border: none;
+}
+
+textarea {
+    display: block;
+    margin: 10px 0;
+}
+
+/* ==========================================================================
+   Bottoni
+   ========================================================================== */
+
+.btn,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    background-color: var(--colore-principale);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+    background-color: var(--colore-principale);
+}
+
+/* ==========================================================================
+   Figure, citazioni e codice
+   ========================================================================== */
+
+figure {
+    margin: 20px;
+    text-align: center;
+}
+
+figcaption {
+    font-style: italic;
+    margin-top: 5px;
+}
+
+blockquote {
+    background-color: white;
+    color: black;
+    border-left: 5px solid var(--colore-principale);
+    margin: 20px;
+    padding: 10px 20px;
+    font-style: italic;
+}
+
+code {
+    background-color: white;
+    color: var(--colore-principale);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+pre code {
+    display: block;
+    padding: 15px;
+    overflow-x: auto;
+}
