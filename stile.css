@@ -128,6 +128,7 @@ a {
     transition: top 0.2s ease;
 }
 
+
 .skip-link:focus {
     top: 12px;
 }
@@ -313,6 +314,7 @@ main section {
     margin-bottom: 10px;
 }
 
+
 /* mostra solo la prima riga di certificati (overflow nascosto), poi si
    allunga con una transition quando ci passi sopra il mouse o ci arrivi
    con il tab da tastiera: nessun JavaScript, solo CSS */
@@ -380,6 +382,16 @@ main section {
     font-family: var(--font-mono);
     font-weight: 500;
     border-radius: calc(var(--radius) - 4px);
+}
+
+.cert-thumb-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 8px;
+    background: #fff;
 }
 
 .cert-label {
