@@ -44,7 +44,19 @@
 #dark-mode-switch {
     opacity: 0;
 }
-/*sistemare*/
+body:has(#dark-mode-switch:checked) {
+    --bg: #0F1115;
+    --surface: #1A1D23;
+    --surface-alt: #20242C;
+    --border: #2B2F38;
+    --ink: #E6E8EC;
+    --ink-soft: #A7ADBA;
+    --accent: #7A8EFF;
+    --accent-soft: #232A4D;
+    --highlight: #FFC369;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+/*fallback per chi non supporta has*/
 #dark-mode-switch:checked~.div_contenitore {
    --bg: #0F1115;
     --surface: #1A1D23;
