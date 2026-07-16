@@ -505,7 +505,7 @@ main section {
     box-shadow: var(--shadow);
     padding: 20px;
 }
-
+.project-card img {width: 100%;}
 .project-meta {
     display: grid;
     grid-template-columns: 1fr 1fr;
