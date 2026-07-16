@@ -19,8 +19,6 @@
     --container: 1100px;
 }
 
-/* tema scuro, fare pulsante darkmode*/
-
 /*DARK MODE*/
 .dark-mode-bar {
     position: fixed;
@@ -44,6 +42,7 @@
 #dark-mode-switch {
     opacity: 0;
 }
+
 body:has(#dark-mode-switch:checked) {
     --bg: #0F1115;
     --surface: #1A1D23;
@@ -56,9 +55,10 @@ body:has(#dark-mode-switch:checked) {
     --highlight: #FFC369;
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.3);
 }
+
 /*fallback per chi non supporta has*/
 #dark-mode-switch:checked~.div_contenitore {
-   --bg: #0F1115;
+    --bg: #0F1115;
     --surface: #1A1D23;
     --surface-alt: #20242C;
     --border: #2B2F38;
@@ -99,9 +99,7 @@ html.dark {
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/*RESET & BASE (mobile first: queste regole valgono da subito
-   per gli schermi piu' piccoli, poi le media query in fondo
-   le adattano a tablet, desktop e orientamento landscape) */
+/*Reset */
 *,
 *::before,
 *::after {
@@ -237,7 +235,54 @@ main section {
     border-color: var(--border);
 }
 
-/*HEADER + NAV (mobile: menu impilato, apribile col bottone)*/
+/*banner*/
+.banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: var(--highlight);
+    color: #1A1D23;
+    padding: 10px 20px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    text-align: center;
+}
+
+.wip-close {
+    cursor: pointer;
+    font-weight: 700;
+    padding: 2px 8px;
+}
+
+/* Quando il checkbox nascosto è selezionato, il banner sparisce */
+#wip-dismiss:checked~.wip-banner {
+    display: none;
+}
+
+/*Freccia in su*/
+
+#home_icon {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
+
+/*HEADER + NAV)*/
 .site-header {
     display: flex;
     align-items: center;
@@ -364,10 +409,6 @@ main section {
     margin-bottom: 10px;
 }
 
-
-/* mostra solo la prima riga di certificati (overflow nascosto), poi si
-   allunga con una transition quando ci passi sopra il mouse o ci arrivi
-   con il tab da tastiera: nessun JavaScript, solo CSS */
 .cert-list {
     max-height: 128px;
     overflow: hidden;
@@ -549,21 +590,6 @@ main section {
 
 .social-links a:hover {
     color: var(--accent);
-}
-
-#home_icon {
-    position: fixed;
-    bottom: 18px;
-    right: 18px;
-    width: 40px;
-    height: 40px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow);
 }
 
 /*TABLET — da 600px in su*/
