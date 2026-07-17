@@ -341,7 +341,7 @@ main section {
 /* HERO / ABOUT ME*/
 .about {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: reverse;
     gap: 24px;
     padding-top: 32px;
     border-top: none;
