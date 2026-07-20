@@ -262,7 +262,7 @@ main section {
 }
 
 /* Quando il checkbox nascosto è selezionato, il banner sparisce */
-#wip-dismiss:checked~.wip-banner {
+#wip-dismiss:checked~.banner {
     display: none;
 }
 
