@@ -15,6 +15,7 @@
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="stile.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -66,7 +67,8 @@
                             framework front-end come React, Angular e Bootstrap. Il mio obiettivo è lavorare in team a
                             progetti reali, mettendo a frutto precisione, curiosità e voglia costante di imparare.</p>
                         <div class="hero-actions">
-                            <a class="btn btn-primary" href="Documenti/Curriculum Cappellano Federica.pdf" download>Scarica il CV</a>
+                            <a class="btn btn-primary" href="Documenti/Curriculum Cappellano Federica.pdf"
+                                download>Scarica il CV</a>
                             <a class="btn btn-ghost" href="#project">Vedi i progetti</a>
                         </div>
                     </div>
@@ -357,19 +359,21 @@
                     <h2>Contattami</h2>
                     <p class="section-intro">Scrivimi per un feedback sul mio percorso o
                         un'opportunità di formazione.</p>
-                    <form class="contact-form" action="inserimento_dati.php" method="post">
+                    <form class="contact-form" id="contact-form">
                         <label for="contact-name">Nome</label>
-                        <input id="contact-name" type="text" name="name" placeholder="Il tuo nome">
+                        <input id="contact-name" type="text" name="from_name" placeholder="Il tuo nome">
 
                         <label for="contact-email">Email</label>
-                        <input id="contact-email" type="email" name="email" placeholder="La tua email" required>
+                        <input id="contact-email" type="email" name="from_email" placeholder="La tua email" required>
 
                         <label for="contact-message">Messaggio</label>
                         <textarea id="contact-message" name="message" placeholder="Scrivi qui il tuo messaggio"
                             required></textarea>
 
                         <button class="btn btn-primary" type="submit">Invia messaggio</button>
+                        <p id="form-status" class="form-status"></p>
                     </form>
+                </section>
                 </section>
             </main>
 
@@ -389,7 +393,28 @@
             </a>
         </div>
     </div>
+    <script>
+        // Inizializza EmailJS con la tua Public Key
+        emailjs.init(j_pVlYPkNH5DyH9xF);
 
+
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // impedisce il ricaricamento della pagina
+
+            const statusEl = document.getElementById("form-status");
+            statusEl.textContent = "Invio in corso...";
+
+            emailjs.sendForm(service_qu7a6ak, template_6kjwwao, this)
+                .then(function () {
+                    statusEl.textContent = "Messaggio inviato! Ti risponderò presto.";
+                    document.getElementById("contact-form").reset();
+                })
+                .catch(function (error) {
+                    statusEl.textContent = "Errore nell'invio. Riprova più tardi.";
+                    console.error("Errore EmailJS:", error);
+                });
+        });
+    </script>
 </body>
 
 </html>
