@@ -395,7 +395,7 @@
     </div>
     <script>
         // Inizializza EmailJS con la tua Public Key
-        emailjs.init(j_pVlYPkNH5DyH9xF);
+        emailjs.init("j_pVlYPkNH5DyH9xF");
 
 
         document.getElementById("contact-form").addEventListener("submit", function (event) {
@@ -404,7 +404,7 @@
             const statusEl = document.getElementById("form-status");
             statusEl.textContent = "Invio in corso...";
 
-            emailjs.sendForm(service_qu7a6ak, template_6kjwwao, this)
+            emailjs.sendForm("service_qu7a6ak", "template_6kjwwao", this)
                 .then(function () {
                     statusEl.textContent = "Messaggio inviato! Ti risponderò presto.";
                     document.getElementById("contact-form").reset();
