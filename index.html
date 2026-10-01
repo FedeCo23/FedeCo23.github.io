@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Federica Cappellano — front-end developer junior. HTML, CSS, JavaScript e accessibilità, con progetti e certificazioni.">
+        content="Federica Cappellano — front-end developer junior. HTML, CSS, React e accessibilità, con progetti e certificazioni.">
     <meta property="og:title" content="Federica Cappellano — Front-end Developer">
     <meta property="og:description" content="Portfolio di Federica Cappellano, aspirante sviluppatrice front-end.">
     <title>Federica Cappellano — Front-end Developer</title>
@@ -15,10 +15,12 @@
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="stile.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="tema.js"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-
     <div class="div_contenitore">
         <input type="checkbox" id="wip-dismiss" class="visually-hidden">
         <div class="banner">
@@ -35,12 +37,19 @@
                     <p class="brand-role">Front-end developer</p>
                 </div>
 
-                <nav>
-                    <ul class="menu">
+                <div class="header-tools">
+                    <button type="button" id="theme-toggle" class="icon-btn" aria-pressed="false">Dark mode</button>
+                    <button type="button" id="menu-toggle" class="icon-btn" aria-expanded="false"
+                        aria-controls="menu">Menu</button>
+                </div>
+
+                <nav class="main-nav" id="menu">
+                    <ul class="topmenu">
                         <li><a href="#about_me">Chi sono</a></li>
                         <li><a href="#skills_section">Skills</a></li>
                         <li><a href="#certifications">Certificazioni</a></li>
                         <li><a href="#project">Progetti</a></li>
+
                     </ul>
                 </nav>
             </header>
@@ -50,14 +59,18 @@
                 <!-- HERO / ABOUT ME -->
                 <section id="about_me" class="about">
                     <div class="about-media">
-                        <img src="Immagini/Foto Cappellano Federica.jpeg" alt="Foto di Cappellano Federica"
+                        <img src="Immagini/Foto-Cappellano-Federica.jpeg" alt="Foto di Cappellano Federica"
                             title="Federica" class="about-illustration">
                     </div>
                     <div class="about-copy">
                         <p class="eyebrow">Ciao, sono</p>
                         <h1>Federica Cappellano</h1>
-                        <p class="lede">Sto studiando come sviluppatrice front-end attraverso corsi di formazione e pratica costante. Negli ultimi mesi mi sono concentrata su HTML, CSS, JavaScript, PHP. Il mio obiettivo è lavorare in team a
-                            progetti reali, mettendo a frutto precisione, curiosità e voglia costante di imparare.</p>
+                        <p class="lede">Sto studiando per diventare sviluppatrice front-end attraverso un percorso che
+                            combina formazione autonoma e un corso full stack. <br>
+                             Ho approfondito HTML, CSS, JavaScript, PHP, MySQL e Laravel, alternando lo studio individuale alla pratica e ai progetti svolti durante il corso. <br>
+                             Il mio obiettivo è continuare a crescere come sviluppatrice, lavorare in
+                            team su progetti reali e mettere a frutto precisione, curiosità e voglia costante di
+                            imparare.</p>
                         <div class="hero-actions">
                             <a class="btn btn-ghost" href="#project">Vedi i progetti</a>
                         </div>
@@ -85,28 +98,31 @@
 
                         </div>
                         <div class="skill">
-                            <p class="skill-icon skill-text" aria-hidden="true">PHP</p>
+                            <img src="Immagini/Skills/download.png" alt="Logo_PHP" class="skill-icon">
+            
                             <p class="skill-name">PHP</p>
-                           
+
                         </div>
                         <div class="skill">
-                            <p class="skill-icon skill-text" aria-hidden="true">SQL</p>
+                            <img src="Immagini/Skills/mysql-logo.png" alt="Logo_MYSQL" class="skill-icon">
+                    
                             <p class="skill-name">MySQL</p>
-                          
+
                         </div>
                         <div class="skill">
-                            <p class="skill-icon skill-text" aria-hidden="true">Lv</p>
-                            <p class="skill-name">Laravel</p>
+                            <img src="Immagini/Skills/laraverl-logo.svg" alt="Logo_Laravel" class="skill-icon">
                            
+                            <p class="skill-name">Laravel</p>
+
                         </div>
                     </div>
-
                 </section>
                 <!-- CERTIFICAZIONI -->
                 <section id="certifications" class="certifications">
                     <p class="eyebrow">Formazione verificata</p>
                     <h2>Certificazioni</h2>
-                    <p class="section-intro">Più di 20 certificazioni Coursera, raggruppate per area.</p>
+                    <p class="section-intro">Più di 20 certificazioni Coursera, raggruppate per area. Usa il pulsante
+                        "Mostra tutte" sotto ogni gruppo per vederle tutte.</p>
                     <div class="cert-group">
                         <h3>Front-end</h3>
                         <div class="cert-list">
@@ -141,7 +157,7 @@
                                             loading="lazy">
                                         <span class="cert-label">HTML, CSS, and Javascript for Web Developers</span>
                                     </a></li>
-                                <li><a href="Immagini/Certificati/Introduction to CSS3 .png" class="cert-card"
+                                <li><a href="Immagini/Certificati/Introduction to CSS3.png" class="cert-card"
                                         target="_blank" rel="noopener">
                                         <img class="cert-thumb-img" src="Immagini/Certificati/Introduction to CSS3 .png"
                                             alt="Certificato: Introduction to CSS3" loading="lazy">
@@ -176,7 +192,20 @@
                             </ul>
                         </div>
                     </div>
-
+                    <div class="cert-group">
+                        <h3>Full-stuck</h3>
+                        <div class="cert-list-ex">
+                            <ul class="cert-grid">
+                                <li><a class="cert-card"
+                                        target="_blank" rel="noopener">
+                                        <img class="cert-thumb-img">
+                                        <span class="cert-label">Corso Full-stuck promosso da Forma.Temp della durata di 248 ore.
+                                            In attesa di certificazione.
+                                        </span>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="cert-group">
                         <h3>UX / UI</h3>
                         <div class="cert-list">
@@ -295,6 +324,7 @@
                     </div>
                 </section>
 
+
                 <!-- PROGETTI -->
                 <section id="project" class="projects">
                     <p class="eyebrow">Cosa ho costruito</p>
@@ -302,42 +332,19 @@
                     <div class="project-grid">
                         <article class="project-card">
                             <h3>Guida di riferimento HTML</h3>
-                            <p>Sito per approfondire i concetti principali di HTML, con teoria ed esempi di codice.</p>
-                            <a href="https://fedeco23.github.io/Guida-di-riferimento-HTML/" class="project-image">
+                             <a href="https://fedeco23.github.io/Guida-di-riferimento-HTML/" class="project-image">
                                 <img src="Immagini/Progetti/Immagine pagina Guida di riferimento HTML.png"
                                     alt="Anteprima della guida di riferimento HTML"></a>
+                            <p>Sito per approfondire i concetti principali di HTML, con teoria ed esempi di codice.</p>
                             <dl class="project-meta">
                                 <div>
                                     <dt>Tipo</dt>
                                     <dd>Progetto personale</dd>
                                 </div>
-                                <div>
-                                    <dt>Data</dt>
-                                    <dd>Gennaio 2026</dd>
-                                </div>
+                        
                                 <div>
                                     <dt>Stack</dt>
                                     <dd>HTML5</dd>
-                                </div>
-                            </dl>
-                            <a class="project-link" href="#"><!--Inserire--></a>
-                        </article>
-                        <article class="project-card">
-                            <h3>Guida di riferimento CSS</h3>
-                            <p>Guida personale su selettori CSS, Flexbox, Grid e responsive design.</p>
-                            </a>
-                            <dl class="project-meta">
-                                <div>
-                                    <dt>Tipo</dt>
-                                    <dd>Progetto personale</dd>
-                                </div>
-                                <div>
-                                    <dt>Data</dt>
-                                    <dd>Marzo 2026</dd>
-                                </div>
-                                <div>
-                                    <dt>Stack</dt>
-                                    <dd>HTML5, CSS3, Flexbox, Grid</dd>
                                 </div>
                             </dl>
                             <a class="project-link" href="#"><!--Inserire--></a>
@@ -351,28 +358,44 @@
                                     <dd>Progetto personale</dd>
                                 </div>
                                 <div>
-                                    <dt>Data</dt>
-                                    <dd>Luglio 2026</dd>
-                                </div>
-                                <div>
                                     <dt>Stack</dt>
                                     <dd>HTML5, CSS3, Flexbox, Grid</dd>
                                 </div>
                             </dl>
                             <a class="project-link" href="#"><!--Inserire--></a>
                         </article>
+                         <article class="project-card">
+                        <h3>Vivaio — Sito web con sistema di recensioni</h3>
+                                <img src="Immagini/Progetti/Immagine-sito-web-php-mysql.png"
+                                    alt="Immagine sito web sviluppato in PHP, MySQL, HTML e CSS ">
+                                     <p>Sito web per un vivaio, sviluppato in PHP, MySQL, HTML e CSS. <br>
+                            Il progetto include un sistema di recensioni che permette agli utenti di inserire i propri
+                            dati attraverso un form. <br>
+
+                            I dati vengono validati e sanificati, salvati in un database MySQL tramite query preparate e
+                            successivamente recuperati e mostrati nella pagina delle recensioni. </p>
+                             
+                        <dl class="project-meta">
+                            <div>
+                                <dt>Tipo</dt>
+                                <dd>Progetto personale</dd>
+                            </div>
+                            <div>
+                                <dt>Stack</dt>
+                                <dd>HTML5, CSS3, PHP, MySQL</dd>
+                            </div>
+                        </dl>
+                        <a class="project-link" href="#"><!--Inserire--></a>
+                    </article>
                     </div>
                 </section>
+
+
             </main>
 
             <!-- FOOTER -->
-            <footer class="site-footer">
+            <footer>
                 <p>© 2026 Federica Cappellano</p>
-                <ul class="social-links">
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">GitHub</a></li>
-                    <li><a href="mailto:federica@example.it">Email</a></li>
-                </ul>
             </footer>
 
             <a href="#home" id="home_icon" aria-label="Torna in cima alla pagina">

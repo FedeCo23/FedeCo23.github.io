@@ -1,14 +1,14 @@
 (function () {
     const root = document.documentElement;
-    root.classList.add("js");
-
-    let tema = null;
+    root.classList.add("js"); // dice al CSS che JavaScript funziona
+ 
+    let salvato = null;
     try {
-        tema = localStorage.getItem("tema");
-    } catch (e) { /* localStorage può essere bloccato */ }
-
-    if (tema !== "dark" && tema !== "light") {
-        tema = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        salvato = localStorage.getItem("tema");
+    } catch (e) { /* localStorage può essere bloccato: non è un problema */ }
+ 
+    if (salvato === "dark" || salvato === "light") {
+        root.classList.add(salvato);
     }
-    root.dataset.theme = tema;
 })();
+ 
