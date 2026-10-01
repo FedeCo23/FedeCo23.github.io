@@ -4,49 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; form-action 'none'">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta name="description" content="Federica Cappellano, sviluppatrice web junior. HTML, CSS, JavaScript, PHP, MySQL e Laravel.">
-    <meta property="og:title" content="Federica Cappellano — Web Developer Junior">
-    <meta property="og:description" content="Portfolio di Federica Cappellano, sviluppatrice web junior.">
-    <title>Federica Cappellano — Web Developer Junior</title>
+    <meta name="description"
+        content="Federica Cappellano — front-end developer junior. HTML, CSS, JavaScript e accessibilità, con progetti e certificazioni.">
+    <meta property="og:title" content="Federica Cappellano — Front-end Developer">
+    <meta property="og:description" content="Portfolio di Federica Cappellano, aspirante sviluppatrice front-end.">
+    <title>Federica Cappellano — Front-end Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="stile.css">
-    <script src="tema.js"></script>
-    <script src="script.js" defer></script>
 </head>
 
 <body>
+
     <div class="div_contenitore">
-        <a class="skip-link" href="#main">Vai al contenuto</a>
-        <div class="banner" id="banner">
-            <p>🚧 Questo sito è ancora in fase di sviluppo: alcuni contenuti potrebbero cambiare.</p>
-            <button type="button" class="wip-close" aria-label="Chiudi avviso">✕</button>
+        <input type="checkbox" id="wip-dismiss" class="visually-hidden">
+        <div class="banner">
+            <p>🚧 Questo sito è ancora in fase di sviluppo: alcuni contenuti potrebbero essere aggiornati.
+            </p>
+            <label for="wip-dismiss" class="wip-close" aria-label="Chiudi avviso">✕</label>
         </div>
         <div class="page" id="home">
 
             <!-- HEADER -->
-            <header class="site-header">
+            <header>
                 <div class="brand">
                     <p class="brand-name">Federica Cappellano</p>
-                    <p class="brand-role">Web developer junior</p>
+                    <p class="brand-role">Front-end developer</p>
                 </div>
 
-                <div class="header-tools">
-                    <button type="button" id="theme-toggle" class="icon-btn" aria-pressed="false">Tema scuro</button>
-                    <button type="button" id="menu-toggle" class="icon-btn" aria-expanded="false" aria-controls="menu">Menu</button>
-                </div>
-                <nav class="main-nav" id="menu" aria-label="Principale">
-                    <ul class="topmenu">
+                <nav>
+                    <ul class="menu">
                         <li><a href="#about_me">Chi sono</a></li>
                         <li><a href="#skills_section">Skills</a></li>
                         <li><a href="#certifications">Certificazioni</a></li>
                         <li><a href="#project">Progetti</a></li>
-                        <li><a href="#contact">Contatti</a></li>
                     </ul>
                 </nav>
             </header>
@@ -62,10 +56,9 @@
                     <div class="about-copy">
                         <p class="eyebrow">Ciao, sono</p>
                         <h1>Federica Cappellano</h1>
-                        <p class="lede">Ho completato un corso fullstack di un mese (HTML, CSS, JavaScript, PHP, MySQL e Laravel) e continuo a studiare da autodidatta. Cerco un primo ruolo da sviluppatrice web junior, in un team dove crescere su progetti reali, con precisione, curiosità e voglia di imparare.</p>
+                        <p class="lede">Sto studiando come sviluppatrice front-end attraverso corsi di formazione e pratica costante. Negli ultimi mesi mi sono concentrata su HTML, CSS, JavaScript, PHP. Il mio obiettivo è lavorare in team a
+                            progetti reali, mettendo a frutto precisione, curiosità e voglia costante di imparare.</p>
                         <div class="hero-actions">
-                            <a class="btn btn-primary" href="Documenti/Curriculum Cappellano Federica.pdf"
-                                download>Scarica il CV</a>
                             <a class="btn btn-ghost" href="#project">Vedi i progetti</a>
                         </div>
                     </div>
@@ -79,28 +72,41 @@
                         <div class="skill">
                             <img src="Immagini/Skills/Logo HTML.png" alt="Logo HTML" class="skill-icon">
                             <p class="skill-name">HTML</p>
-                            <p class="skill-time">6 mesi di studio</p>
+
                         </div>
                         <div class="skill">
                             <img src="Immagini/Skills/Logo CSS.png" alt="Logo CSS" class="skill-icon">
                             <p class="skill-name">CSS</p>
-                            <p class="skill-time">6 mesi di studio</p>
+
                         </div>
                         <div class="skill">
                             <img src="Immagini/Skills/Logo JavaScript.png" alt="Logo_J" class="skill-icon">
                             <p class="skill-name">JavaScript</p>
-                            <p class="skill-time">3 mesi di studio</p>
+
                         </div>
-                        <div class="skill"><p class="skill-icon skill-text" aria-hidden="true">PHP</p><p class="skill-name">PHP</p><p class="skill-time">corso fullstack</p></div>
-                        <div class="skill"><p class="skill-icon skill-text" aria-hidden="true">SQL</p><p class="skill-name">MySQL</p><p class="skill-time">corso fullstack</p></div>
-                        <div class="skill"><p class="skill-icon skill-text" aria-hidden="true">Lv</p><p class="skill-name">Laravel</p><p class="skill-time">corso fullstack</p></div>
+                        <div class="skill">
+                            <p class="skill-icon skill-text" aria-hidden="true">PHP</p>
+                            <p class="skill-name">PHP</p>
+                           
+                        </div>
+                        <div class="skill">
+                            <p class="skill-icon skill-text" aria-hidden="true">SQL</p>
+                            <p class="skill-name">MySQL</p>
+                          
+                        </div>
+                        <div class="skill">
+                            <p class="skill-icon skill-text" aria-hidden="true">Lv</p>
+                            <p class="skill-name">Laravel</p>
+                           
+                        </div>
                     </div>
+
                 </section>
                 <!-- CERTIFICAZIONI -->
                 <section id="certifications" class="certifications">
                     <p class="eyebrow">Formazione verificata</p>
                     <h2>Certificazioni</h2>
-                    <p class="section-intro">Più di 20 certificazioni Coursera, raggruppate per area. Usa il pulsante di ogni gruppo per vederle tutte.</p>
+                    <p class="section-intro">Più di 20 certificazioni Coursera, raggruppate per area.</p>
                     <div class="cert-group">
                         <h3>Front-end</h3>
                         <div class="cert-list">
@@ -289,65 +295,72 @@
                     </div>
                 </section>
 
-
                 <!-- PROGETTI -->
                 <section id="project" class="projects">
                     <p class="eyebrow">Cosa ho costruito</p>
                     <h2>Progetti</h2>
-                    <div class="filters" role="group" aria-label="Filtra i progetti">
-                        <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">Tutti</button>
-                        <button type="button" class="filter-btn" data-filter="frontend" aria-pressed="false">Front-end</button>
-                        <button type="button" class="filter-btn" data-filter="backend" aria-pressed="false">Back-end</button>
-                    </div>
                     <div class="project-grid">
-                        <article class="project-card reveal" data-category="frontend">
+                        <article class="project-card">
                             <h3>Guida di riferimento HTML</h3>
                             <p>Sito per approfondire i concetti principali di HTML, con teoria ed esempi di codice.</p>
-                            <a href="https://fedeco23.github.io/Guida-di-riferimento-HTML/" class="project-image" target="_blank" rel="noopener noreferrer">
-                                <img src="Immagini/Progetti/Immagine pagina Guida di riferimento HTML.png" alt="Anteprima della guida di riferimento HTML" loading="lazy"></a>
+                            <a href="https://fedeco23.github.io/Guida-di-riferimento-HTML/" class="project-image">
+                                <img src="Immagini/Progetti/Immagine pagina Guida di riferimento HTML.png"
+                                    alt="Anteprima della guida di riferimento HTML"></a>
                             <dl class="project-meta">
-                                <div><dt>Tipo</dt><dd>Progetto personale</dd></div>
-                                <div><dt>Data</dt><dd>Gennaio 2026</dd></div>
-                                <div><dt>Stack</dt><dd>HTML5</dd></div>
+                                <div>
+                                    <dt>Tipo</dt>
+                                    <dd>Progetto personale</dd>
+                                </div>
+                                <div>
+                                    <dt>Data</dt>
+                                    <dd>Gennaio 2026</dd>
+                                </div>
+                                <div>
+                                    <dt>Stack</dt>
+                                    <dd>HTML5</dd>
+                                </div>
                             </dl>
-                            <a class="project-link" href="https://fedeco23.github.io/Guida-di-riferimento-HTML/" target="_blank" rel="noopener noreferrer">Vedi il sito</a>
+                            <a class="project-link" href="#"><!--Inserire--></a>
                         </article>
-                        <article class="project-card reveal" data-category="frontend">
+                        <article class="project-card">
                             <h3>Guida di riferimento CSS</h3>
                             <p>Guida personale su selettori CSS, Flexbox, Grid e responsive design.</p>
+                            </a>
                             <dl class="project-meta">
-                                <div><dt>Tipo</dt><dd>Progetto personale</dd></div>
-                                <div><dt>Data</dt><dd>Marzo 2026</dd></div>
-                                <div><dt>Stack</dt><dd>HTML5, CSS3, Flexbox, Grid</dd></div>
+                                <div>
+                                    <dt>Tipo</dt>
+                                    <dd>Progetto personale</dd>
+                                </div>
+                                <div>
+                                    <dt>Data</dt>
+                                    <dd>Marzo 2026</dd>
+                                </div>
+                                <div>
+                                    <dt>Stack</dt>
+                                    <dd>HTML5, CSS3, Flexbox, Grid</dd>
+                                </div>
                             </dl>
+                            <a class="project-link" href="#"><!--Inserire--></a>
                         </article>
-                        <article class="project-card reveal" data-category="frontend">
+                        <article class="project-card">
                             <h3>Landing page per un negozio</h3>
-                            <p>Sito con hero section, sezione features a card, pricing, footer.</p>
+                            <p>Sito con hero section, sezione features a card, pricing, footer. </p>
                             <dl class="project-meta">
-                                <div><dt>Tipo</dt><dd>Progetto personale</dd></div>
-                                <div><dt>Data</dt><dd>Luglio 2026</dd></div>
-                                <div><dt>Stack</dt><dd>HTML5, CSS3, Flexbox, Grid</dd></div>
+                                <div>
+                                    <dt>Tipo</dt>
+                                    <dd>Progetto personale</dd>
+                                </div>
+                                <div>
+                                    <dt>Data</dt>
+                                    <dd>Luglio 2026</dd>
+                                </div>
+                                <div>
+                                    <dt>Stack</dt>
+                                    <dd>HTML5, CSS3, Flexbox, Grid</dd>
+                                </div>
                             </dl>
+                            <a class="project-link" href="#"><!--Inserire--></a>
                         </article>
-                        <article class="project-card reveal" data-category="backend">
-                            <h3>Prossimamente: app Laravel + MySQL</h3>
-                            <p>Applicazione con login e gestione dei dati (CRUD). Da inserire quando sarà pronta.</p>
-                            <dl class="project-meta">
-                                <div><dt>Tipo</dt><dd>Progetto personale</dd></div>
-                                <div><dt>Data</dt><dd>In arrivo</dd></div>
-                                <div><dt>Stack</dt><dd>PHP, Laravel, MySQL</dd></div>
-                            </dl>
-                        </article>
-                    </div>
-                </section>
-                <section id="contact" class="contact">
-                    <p class="eyebrow">Parliamone</p>
-                    <h2>Contatti</h2>
-                    <p class="section-intro">Mi trovi su LinkedIn e GitHub: scrivimi per un feedback sul mio percorso o per un'opportunità.</p>
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="https://www.linkedin.com/in/TUO-PROFILO/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        <a class="btn btn-ghost" href="https://github.com/fedeco23" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                 </section>
             </main>
@@ -356,8 +369,9 @@
             <footer class="site-footer">
                 <p>© 2026 Federica Cappellano</p>
                 <ul class="social-links">
-                    <li><a href="https://www.linkedin.com/in/TUO-PROFILO/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="https://github.com/fedeco23" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="mailto:federica@example.it">Email</a></li>
                 </ul>
             </footer>
 
@@ -367,6 +381,7 @@
             </a>
         </div>
     </div>
+
 </body>
 
 </html>
