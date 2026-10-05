@@ -457,18 +457,28 @@ header {
 }
 
 .project-card {
+    display: flex;
+    flex-direction: column;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     padding: 20px;
+    height: 100%;
 }
-.project-card img {width: 100%;}
+
+.project-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
 .project-meta {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px 12px;
-    margin: 12px 0;
+    margin: auto 0 0;
+    padding-top: 12px;
     font-size: 13px;
 }
 
