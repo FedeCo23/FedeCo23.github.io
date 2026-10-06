@@ -157,9 +157,28 @@ main section {
     border-color: var(--border);
 }
 
+#theme-toggle {
+    font-size: 0;
+}
+
+#theme-toggle::before {
+    content: "☾";
+    font-size: 1.5rem;
+}
+
+#menu-toggle {
+    font-size: 0;
+}
+
+#menu-toggle::before {
+    content: "☰";
+    font-size: 1.5rem;
+}
+
 /*banner*/
 .banner {
-    position: fixed;
+    position: relative;
+    /* nel flusso: non copre più header e menu */
     top: 0;
     left: 0;
     right: 0;
@@ -302,7 +321,7 @@ header {
 /* HERO / ABOUT ME*/
 .about {
     display: flex;
-    flex-direction:reverse;
+    flex-direction: reverse;
     gap: 24px;
     padding-top: 32px;
     border-top: none;
@@ -368,6 +387,7 @@ header {
     position: relative;
     border-radius: var(--radius);
 }
+
 .cert-list-ex {
     position: relative;
     border-radius: var(--radius);
@@ -379,6 +399,7 @@ header {
     overflow: hidden;
     transition: max-height 0.5s ease;
 }
+
 .js .cert-list-ex {
     max-height: 115px;
     overflow: hidden;
@@ -541,7 +562,7 @@ footer {
         order: 3;
     }
 
-      .cert-grid {
+    .cert-grid {
         grid-template-columns: repeat(4, 1fr);
     }
 
@@ -561,18 +582,23 @@ footer {
         font-size: 30px;
     }
 
+    #theme-toggle::before {
+    content: "Dark Mode";
+    font-size: 16px;
+}
     .skill_layout {
         grid-template-columns: repeat(6, 1fr);
     }
 
-      .cert-grid {
+    .cert-grid {
         grid-template-columns: repeat(5, 1fr);
     }
+
     .project-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    
+
 
     .about-illustration {
         width: 200px;
