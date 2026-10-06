@@ -52,6 +52,25 @@ document.addEventListener("keydown", (e) => {
 
 // ---------- 3. CERTIFICAZIONI: "Mostra tutte" ----------
 document.querySelectorAll(".cert-list").forEach((lista) => {
+
+
+  const numeroElementi = lista.querySelectorAll("li").length;
+    let limite;
+
+    if (window.innerWidth < 600) {
+        limite = 2; // Mobile
+    } else if (window.innerWidth < 1200) {
+        limite = 4; // Tablet
+    } else {
+        limite = 5; // Desktop
+    }
+
+    if (numeroElementi <= limite) {
+        return; // non serve il pulsante
+    }
+
+
+
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "cert-more";
