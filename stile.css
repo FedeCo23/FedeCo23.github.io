@@ -493,6 +493,14 @@ header {
     aspect-ratio: 16 / 9;
     object-fit: cover;
 }
+.project-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
 
 .project-meta {
     display: grid;
