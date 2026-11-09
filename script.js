@@ -51,37 +51,105 @@ document.addEventListener("keydown", (e) => {
 });
 
 // ---------- 3. CERTIFICAZIONI: "Mostra tutte" ----------
+// ---------- 3. CERTIFICAZIONI: "Mostra tutte" ----------
+const aggiornaListeCertificazioni = [];
+
 document.querySelectorAll(".cert-list").forEach((lista) => {
-
-
-  const numeroElementi = lista.querySelectorAll("li").length;
-    let limite;
-
-    if (window.innerWidth < 600) {
-        limite = 2; // Mobile
-    } else if (window.innerWidth < 1200) {
-        limite = 4; // Tablet
-    } else {
-        limite = 5; // Desktop
-    }
-
-    if (numeroElementi <= limite) {
-        return; // non serve il pulsante
-    }
-
-
+    const elementi = Array.from(lista.querySelectorAll(".cert-grid > li"));
+    let aperta = false;
 
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "cert-more";
-    btn.textContent = "Mostra tutte";
-    btn.setAttribute("aria-expanded", "false");
+
+    const aggiorna = () => {
+        const griglia = lista.querySelector(".cert-grid");
+        const limite = getComputedStyle(griglia).gridTemplateColumns.split(" ").length;
+        const serve = elementi.length > limite;
+
+        // Se non serve il bottone: mostra tutto, resetta lo stato e nascondi il bottone
+        if (!serve) {
+            aperta = false;
+            lista.classList.remove("open");
+            elementi.forEach((elemento) => (elemento.hidden = false));
+            btn.hidden = true;
+            btn.style.display = "none";
+            return;
+        }
+
+        btn.style.display = "";
+        btn.hidden = false;
+
+        elementi.forEach((elemento, index) => {
+            elemento.hidden = !aperta && index >= limite;
+        });
+        btn.textContent = aperta ? "Mostra meno" : "Mostra di più";
+        btn.setAttribute("aria-expanded", String(aperta));
+    };
 
     btn.addEventListener("click", () => {
-        const aperta = lista.classList.toggle("open");
-        btn.setAttribute("aria-expanded", String(aperta));
-        btn.textContent = aperta ? "Mostra meno" : "Mostra tutte";
+        aperta = !aperta;
+        lista.classList.toggle("open", aperta);
+        aggiorna();
     });
 
     lista.after(btn); // il pulsante va subito sotto l'elenco
+    aggiornaListeCertificazioni.push(aggiorna);
+    aggiorna(); // chiamata iniziale: imposta testo e visibilità subito
+});
+
+// Una sola volta, fuori dal forEach: ricalcola al ridimensionamento della finestra
+window.addEventListener("resize", () => {
+    aggiornaListeCertificazioni.forEach((fn) => fn());
+});
+
+// ---------- 4. PROGETTI: "Mostra di più" ----------
+const aggiornaPulsantiProgetti = [];
+
+document.querySelectorAll(".project-card").forEach((card, index) => {
+    const media = card.querySelector(".project-image, .project-video");
+    const contenuto = document.createElement("div");
+    contenuto.className = "project-content";
+
+    let sibling = media.nextElementSibling;
+    while (sibling && !sibling.matches(".project-link")) {
+        const next = sibling.nextElementSibling;
+        contenuto.append(sibling);
+        sibling = next;
+    }
+    card.insertBefore(contenuto, sibling);
+
+    contenuto.id = `project-details-${index + 1}`;
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "icon-btn project-more";
+    btn.hidden = true;
+    btn.textContent = "Mostra di più";
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-controls", contenuto.id);
+
+    const aggiornaPulsante = () => {
+        const espansa = card.classList.contains("expanded");
+        btn.hidden = !espansa && contenuto.scrollHeight <= contenuto.clientHeight;
+    };
+    aggiornaPulsantiProgetti.push(aggiornaPulsante);
+
+    btn.addEventListener("click", () => {
+        const espansa = card.classList.toggle("expanded");
+        btn.setAttribute("aria-expanded", String(espansa));
+        btn.textContent = espansa ? "Mostra meno" : "Mostra di più";
+        aggiornaPulsante();
+    });
+
+    card.append(btn);
+});
+
+document.fonts.ready.then(() => {
+    document.documentElement.classList.add("projects-ready");
+    aggiornaPulsantiProgetti.forEach((aggiorna) => aggiorna());
+});
+window.addEventListener("resize", () => {
+    aggiornaListeCertificazioni.forEach((aggiorna) => aggiorna());
+    aggiornaPulsantiProgetti.forEach((aggiorna) => aggiorna());
 });

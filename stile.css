@@ -178,10 +178,6 @@ main section {
 /*banner*/
 .banner {
     position: relative;
-    /* nel flusso: non copre più header e menu */
-    top: 0;
-    left: 0;
-    right: 0;
     z-index: 200;
     display: flex;
     align-items: center;
@@ -321,7 +317,6 @@ header {
 /* HERO / ABOUT ME*/
 .about {
     display: flex;
-    flex-direction: reverse;
     gap: 24px;
     padding-top: 32px;
     border-top: none;
@@ -388,44 +383,8 @@ header {
     border-radius: var(--radius);
 }
 
-.cert-list-ex {
-    position: relative;
-    border-radius: var(--radius);
-}
-
-
-.js .cert-list {
-    max-height: 250px;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-}
-
-.js .cert-list-ex {
-    max-height: 115px;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-}
-
-.js .cert-list::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 30px;
-    background: linear-gradient(to bottom, transparent, var(--bg));
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.js .cert-list.open,
-.js .cert-list:focus-within {
-    max-height: 1800px;
-}
-
-.js .cert-list.open::after,
-.js .cert-list:focus-within::after {
-    opacity: 0;
+.cert-grid > li[hidden] {
+    display: none;
 }
 
 .cert-more {
@@ -434,11 +393,15 @@ header {
 
 .cert-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+.cert-grid > li {
+    min-width: 0;
 }
 
 .cert-card {
@@ -446,6 +409,7 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 6px;
+    min-width: 0;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -458,6 +422,7 @@ header {
 .cert-thumb-img {
     display: block;
     width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 6px;
     background: #fff;
@@ -475,40 +440,57 @@ header {
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
+    align-items: start;
 }
 
 .project-card {
     display: flex;
     flex-direction: column;
+    min-width: 0;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     padding: 20px;
-    height: 100%;
+}
+
+.project-image {
+    display: block;
+    flex: none;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--border);
 }
 
 .project-card img {
+    display: block;
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
 }
+
 .project-video {
     display: block;
+    flex: none;
     width: 100%;
     height: auto;
-    aspect-ratio: auto;
+    aspect-ratio: 16 / 9;
     object-fit: contain;
     border-radius: 8px;
+    background: #000;
 }
 
 .project-meta {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px 12px;
-    margin: auto 0 0;
+    margin: 12px 0 0;
     padding-top: 12px;
     font-size: 13px;
+}
+
+.project-meta > div {
+    min-width: 0;
 }
 
 .project-meta dt {
@@ -519,9 +501,38 @@ header {
 
 .project-meta dd {
     margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.projects-ready .project-content {
+    max-height: 220px;
+    overflow: hidden;
+}
+
+.projects-ready .project-card {
+    height: 520px;
+}
+
+.projects-ready .project-more {
+    flex: none;
+    margin-top: auto;
+}
+
+.projects-ready .project-card.expanded {
+    height: auto;
+}
+
+.projects-ready .project-card.expanded .project-content {
+    max-height: none;
+    overflow: visible;
+}
+
+.projects-ready .project-card.expanded .project-more {
+    margin-top: 12px;
 }
 
 .project-link {
+    margin-top: 12px;
     font-family: var(--font-mono);
     font-size: 13px;
 }
@@ -571,13 +582,15 @@ footer {
     }
 
     .cert-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .js .cert-list {
-        max-height: 125px;
-    }
+}
 
+@media (min-width: 760px) {
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 /*DESKTOP — da 1024px in su*/
@@ -599,7 +612,7 @@ footer {
     }
 
     .cert-grid {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 
     .project-grid {
@@ -616,4 +629,8 @@ footer {
         width: 100px;
         object-fit: contain;
     }
+}
+
+.cert-more[hidden] {
+    display: none !important;
 }

@@ -15,13 +15,12 @@
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="stile.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="tema.js"></script>
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="div_contenitore">
+    <div>
         <input type="checkbox" id="wip-dismiss" class="visually-hidden">
         <div class="banner">
             <p>🚧 Questo sito è ancora in fase di sviluppo: alcuni contenuti potrebbero essere aggiornati.
@@ -32,7 +31,7 @@
 
             <!-- HEADER -->
             <header>
-                <div class="brand">
+                <div>
                     <p class="brand-name">Federica Cappellano</p>
                     <p class="brand-role">Front-end developer</p>
                 </div>
@@ -54,15 +53,15 @@
                 </nav>
             </header>
 
-            <main id="main">
+            <main>
 
                 <!-- HERO / ABOUT ME -->
                 <section id="about_me" class="about">
-                    <div class="about-media">
+                    <div>
                         <img src="Immagini/Foto-Cappellano-Federica.jpeg" alt="Foto di Cappellano Federica"
                             title="Federica" class="about-illustration">
                     </div>
-                    <div class="about-copy">
+                    <div>
                         <p class="eyebrow">Ciao, sono</p>
                         <h1>Federica Cappellano</h1>
                         <p class="lede">Sto studiando per diventare sviluppatrice front-end attraverso un percorso che
@@ -75,13 +74,12 @@
                         <div class="hero-actions">
                             <a class="btn btn-ghost" href="#project">Vedi i progetti</a>
                             <a class="btn btn-ghost" href="https://github.com/FedeCo23">Github</a>
-                            </a>
                         </div>
                     </div>
                 </section>
 
                 <!-- SKILLS -->
-                <section id="skills_section" class="skills">
+                <section id="skills_section">
                     <p class="eyebrow">Cosa so fare</p>
                     <h2>Skills</h2>
                     <div class="skill_layout">
@@ -121,7 +119,7 @@
                     </div>
                 </section>
                 <!-- CERTIFICAZIONI -->
-                <section id="certifications" class="certifications">
+                <section id="certifications">
                     <p class="eyebrow">Formazione verificata</p>
                     <h2>Certificazioni</h2>
                     <p class="section-intro">Più di 20 certificazioni Coursera, raggruppate per area. Usa il pulsante
@@ -197,14 +195,13 @@
                     </div>
                     <div class="cert-group">
                         <h3>Full-stuck</h3>
-                        <div class="cert-list-ex">
+                        <div class="cert-list">
                             <ul class="cert-grid">
-                                <li><a class="cert-card" target="_blank" rel="noopener">
-                                        <img class="cert-thumb-img">
-                                        <span class="cert-label">Corso Full-stuck promosso da Forma.Temp della durata di
-                                            248 ore.
-                                            In attesa di certificazione.
-                                        </span>
+                                <li><a href="Immagini/Certificati/attestato-corso-full-stack.png" class="cert-card"
+                                        target="_blank" rel="noopener">
+                                        <img class="cert-thumb-img" src="Immagini/Certificati/attestato-corso-full-stack.png"
+                                            alt="Certificato: Sviluppatore Full Stack" loading="lazy">
+                                        <span class="cert-label">Sviluppatore Full Stack</span>
                                     </a></li>
                             </ul>
                         </div>
@@ -329,32 +326,10 @@
 
 
                 <!-- PROGETTI -->
-                <section id="project" class="projects">
+                <section id="project">
                     <p class="eyebrow">Cosa ho costruito</p>
                     <h2>Progetti</h2>
                     <div class="project-grid">
-                        <article class="project-card">
-                            <h3>Guida di riferimento HTML</h3>
-                            <a href="https://fedeco23.github.io/Guida-di-riferimento-HTML/" class="project-image">
-                                <img src="Immagini/Progetti/Immagine pagina Guida di riferimento HTML.png"
-                                    alt="Anteprima della guida di riferimento HTML"></a>
-                            <p>Sito per approfondire i concetti principali di HTML, con teoria ed esempi di codice.</p>
-                            <dl class="project-meta">
-                                <div>
-                                    <dt>Tipo</dt>
-                                    <dd>Progetto personale</dd>
-                                </div>
-
-                                <div>
-                                    <dt>Stack</dt>
-                                    <dd>HTML5</dd>
-                                </div>
-                            </dl>
-                            <a class="project-link" href=https://fedeco23.github.io/Guida-di-riferimento-HTML/
-                                target="_blank">
-                                Vedi il progetto
-                            </a>
-                        </article>
                         <article class="project-card">
                             <h3>Maison Soleil</h3>
                             <a href="https://fedeco23.github.io/Maison-Soleil/" class="project-image">
@@ -414,7 +389,7 @@
                                 <source src="Video/lucky-plant.mp4" type="video/mp4">
                                 Il tuo browser non supporta la riproduzione video.
                             </video>
-                           
+
                             <p>
                                 Sito web dedicato a un vivaio, sviluppato con PHP, MySQL,
                                 HTML5 e CSS3. Il progetto include un sistema di recensioni
@@ -441,7 +416,143 @@
                                 Visualizza il codice su GitHub →
                             </a>
                         </article>
-                        ```
+                        <article class="project-card">
+                            <h3>Portfolio</h3>
+                            <video class="project-video" controls muted playsinline preload="metadata"
+                                poster="Immagini/Progetti/foto-portfolio-light.png">
+                                <source src="Video/Portfolio.mp4" type="video/mp4">
+                                Il tuo browser non supporta la riproduzione video.
+                            </video>
+
+                            <p>
+                                Portfolio dinamico, responsive e accessibile, con un design pulito e moderno che mette in evidenza i
+                                progetti dell'autore.
+                            </p>
+                            <p>
+                                I progetti sono salvati in un database MySQL e gestiti da un'area amministrativa
+                                protetta da login: si possono creare, modificare ed eliminare, scegliendo se
+                                pubblicarli o lasciarli in bozza. I visitatori possono salvare i progetti
+                                preferiti e passare dal tema chiaro al tema scuro.
+                            </p>
+
+                            <dl class="project-meta">
+                                <div>
+                                    <dt>Tipo</dt>
+                                    <dd>Progetto personale</dd>
+                                </div>
+                                <div>
+                                    <dt>Stack</dt>
+                                    <dd>HTML5, CSS3, JavaScript, PHP nativo, MySQL (PDO), Apache</dd>
+                                </div>
+                                <div>
+                                    <dt>Funzionalità</dt>
+                                    <dd>Area admin con CRUD, bozze e pubblicazione, preferiti, tema chiaro/scuro</dd>
+                                </div>
+                                <div>
+                                    <dt>Sicurezza</dt>
+                                    <dd>Query preparate, sessioni PHP, validazione dell'input, configurazione in file
+                                        .env</dd>
+                                </div>
+                            </dl>
+                        </article>
+                        <article class="project-card">
+                            <h3>Cucine Moderne</h3>
+                            <video class="project-video" controls muted playsinline preload="metadata"
+                                poster="Immagini/Progetti/foto-cucine-moderne.png">
+                                <source src="Video/Cucine-moderne.mp4" type="video/mp4">
+                                Il tuo browser non supporta la riproduzione video.
+                            </video>
+
+                            <p>
+                                Sito vetrina per un'azienda di cucine componibil. Il catalogo è dinamico e responsive, con
+                                pagina di dettaglio per ogni modello e un modulo per richiedere preventivi o
+                                appuntamenti.
+                            </p>
+                            <p>
+                                Le cucine sono salvate in un database MySQL. Nel catalogo si può filtrare per
+                                stile senza ricaricare la pagina, cercare per nome o stile, ordinare e filtrare
+                                per prezzo, sfogliare le pagine e salvare le cucine preferite. Nella scheda di
+                                dettaglio ci sono la galleria a slider e i materiali disponibili. Un'area
+                                amministrativa protetta da login permette di gestire le cucine, caricare le
+                                immagini e leggere le richieste dei clienti.
+                            </p>
+
+                            <dl class="project-meta">
+                                <div>
+                                    <dt>Tipo</dt>
+                                    <dd>Progetto di stage</dd>
+                                </div>
+                                <div>
+                                    <dt>Stack</dt>
+                                    <dd>HTML5, CSS3, JavaScript, PHP nativo, MySQL (PDO), Apache</dd>
+                                </div>
+                                <div>
+                                    <dt>Funzionalità</dt>
+                                    <dd>Catalogo con filtri, ricerca e paginazione, preferiti, galleria a slider,
+                                        modulo contatti, area admin con CRUD e upload immagini</dd>
+                                </div>
+                                <div>
+                                    <dt>Sicurezza</dt>
+                                    <dd>Query preparate, sessioni PHP, token CSRF, validazione dell'input lato client e
+                                        server, configurazione in file .env</dd>
+                                </div>
+                            </dl>
+                        </article>
+                        <article class="project-card">
+                            <h3>Creo Kitchens Store — Mola di Bari</h3>
+                           <a href="https://www.creomoladibari.it/" class="project-image">
+                                <img src="Immagini/Progetti/creo-mola-di-bari.png"
+                                    alt="anteprima creo mola di bari"></a>
+
+                            <p>
+                                Sito bilingue (italiano/inglese) per Creo Kitchens Store by V&amp;M Italia, showroom di
+                                cucine a Mola di Bari. La pagina presenta l'azienda con hero e CTA
+                                immediata, punti di forza, showroom, un carosello dei lavori con lightbox a schermo
+                                intero e animazioni all'apparizione che rispettano <code>prefers-reduced-motion</code>.
+                            </p>
+                            <p>
+                                Il modulo di contatto salva le richieste in un database MySQL e invia una notifica
+                                email con PHPMailer via SMTP autenticato. Prevede validazione lato browser e server,
+                                protezione CSRF, honeypot, limite di invio e cancellazione automatica delle richieste
+                                dopo 24 mesi. Il banner cookie permette di accettare o rifiutare con lo stesso peso:
+                                la mappa Google Maps e Google Analytics 4 (con Consent Mode v2) si caricano solo dopo
+                                il consenso.
+                            </p>
+
+                            <dl class="project-meta">
+                                <div>
+                                    <dt>Tipo</dt>
+                                    <dd>Progetto per cliente</dd>
+                                </div>
+                                <div>
+                                    <dt>Stack</dt>
+                                    <dd>HTML5, CSS3, JavaScript, PHP nativo, MySQL/MariaDB (PDO), PHPMailer, Apache</dd>
+                                </div>
+                                <div>
+                                    <dt>Funzionalità</dt>
+                                    <dd>Sito bilingue IT/EN, carosello con lightbox, modulo contatti con salvataggio
+                                        su database e notifica email, pulsanti Chiama e WhatsApp, banner cookie,
+                                        Google Analytics 4 con consenso</dd>
+                                </div>
+                                <div>
+                                    <dt>Sicurezza e privacy</dt>
+                                    <dd>Query preparate, token CSRF, honeypot, limite di invio, validazione
+                                        dell'input lato client e server, credenziali in variabili d'ambiente,
+                                        font ospitato in locale</dd>
+                                </div>
+                                <div>
+                                    <dt>SEO e prestazioni</dt>
+                                    <dd>Meta tag Open Graph e Twitter Card, dati strutturati LocalBusiness (JSON-LD),
+                                        hreflang, immagini WebP con srcset e lazy loading. Lighthouse: Accessibilità
+                                        100, SEO 100, Best Practices 100, Performance 98–100</dd>
+                                </div>
+                            </dl>
+
+                            <a class="project-link" href="https://www.creomoladibari.it/" target="_blank"
+                                rel="noopener noreferrer">
+                                Visualizza il sito online →
+                            </a>
+                        </article>
                     </div>
                 </section>
 
